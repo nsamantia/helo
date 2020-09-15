@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { withRouter } from 'react-router-dom'
+import axios from 'axios'
 import Nav from '../Nav/Nav'
 
 
@@ -24,7 +25,15 @@ import Nav from '../Nav/Nav'
         }
 
         handleRegister = () => {
-
+            const {username, password} = this.state
+            axios.post(`/api/auth/register`, {username, password})
+            .then((res) => {
+                this.setState(res.data)
+                this.props.history.push('/Dashboard/Dashboard')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
         }
     //     handleNav =() => {
     //     if(this.props.location.path = '/'){
@@ -45,7 +54,7 @@ import Nav from '../Nav/Nav'
                     </div>
                     <div>
                         <button>Login</button>
-                        <button>Register</button>
+                        <button onClick={() => {this.handleRegister()}}>Register</button>
                     </div>
                         Auth
 
