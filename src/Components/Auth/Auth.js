@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
+import { withRouter } from 'react-router-dom'
+import Nav from '../Nav/Nav'
 
-export default class Auth extends Component{
+
+ class Auth extends Component{
     constructor(){
         super()
         this.state = {
@@ -16,11 +19,19 @@ export default class Auth extends Component{
         handleRegister = (e) => {
 
         }
+    //     handleNav =() => {
+    //     if(this.props.location.path = '/'){
 
-
+    //     } else{
+    //      return(<Nav />)
+    //     }
+    // }
+        
         render(){
             return(
                 <div>
+                {/* {this.props.location.pathname !== "/" && <Nav />} */}
+                
                     Auth
                 </div>
             )
@@ -28,3 +39,4 @@ export default class Auth extends Component{
         }
 
 }
+export default withRouter(Auth)
