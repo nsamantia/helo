@@ -7,16 +7,23 @@ import Nav from '../Nav/Nav'
     constructor(){
         super()
         this.state = {
-            usernamee: '',
+            username: '',
             password: ''
         }
     }
 
-        handleLogin = (e) => {
+        handleInput = (e) => {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
+
+
+        handleLogin = () => {
 
         }
 
-        handleRegister = (e) => {
+        handleRegister = () => {
 
         }
     //     handleNav =() => {
@@ -32,11 +39,20 @@ import Nav from '../Nav/Nav'
                 <div>
                 {/* {this.props.location.pathname !== "/" && <Nav />} */}
                 
-                    Auth
+                    <div>
+                        <input placeholder="Username" name="username" onChange ={(e) => {this.handleInput(e)}}/>
+                        <input placeholder="Password" name="password" onChange={(e) => {this.handleInput(e)}}/>
+                    </div>
+                    <div>
+                        <button>Login</button>
+                        <button>Register</button>
+                    </div>
+                        Auth
+
                 </div>
             )
 
         }
 
 }
-export default withRouter(Auth)
+export default Auth
