@@ -17,7 +17,7 @@ app.use(
     })
 )
 app.post(`/api/auth/register`, authCtrl.register)
-
+app.post(`/api/auth/login`, authCtrl.login)
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false},

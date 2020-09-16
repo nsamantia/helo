@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS users CASCADE
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(20),
-    password varchar(20),
+    hash varchar(20),
     profile_pic TEXT
 )
 
@@ -20,5 +20,5 @@ CREATE TABLE posts(
 
 
 ALTER TABLE users
-ALTER COLUMN password
+ALTER COLUMN hash
 SET DATA TYPE TEXT

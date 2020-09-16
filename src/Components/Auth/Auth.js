@@ -21,6 +21,15 @@ import Nav from '../Nav/Nav'
 
 
         handleLogin = () => {
+            const {username, password} = this.state
+            axios.post('/api/auth/login', {username, password})
+            .then((res) => {
+                this.setState(res.data)
+                this.props.history.push('/Dashboard/Dashboard')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
         }
 
@@ -53,7 +62,7 @@ import Nav from '../Nav/Nav'
                         <input placeholder="Password" name="password" onChange={(e) => {this.handleInput(e)}}/>
                     </div>
                     <div>
-                        <button>Login</button>
+                        <button onClick={() => {this.handleLogin()}}>Login</button>
                         <button onClick={() => {this.handleRegister()}}>Register</button>
                     </div>
                         Auth
@@ -64,4 +73,4 @@ import Nav from '../Nav/Nav'
         }
 
 }
-export default Auth
+export default withRouter (Auth)
