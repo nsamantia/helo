@@ -5,7 +5,7 @@ export default class Dashboard extends Component{
         super()
         this.state = {
             posts: [],
-            seatch: '',
+            search: '',
             userposts: true
         }
      }
