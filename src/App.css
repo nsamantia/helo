@@ -20,8 +20,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
-  width: 40vw;
+  height: 55vh;
+  width: 50vw;
   flex-flow: column wrap;
 }
 
@@ -68,4 +68,45 @@ label{
 .helo-h1{
   color: #f2f2f2;
   font-size: 50px;
+}
+
+.navbar{
+  background-color: blue;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 7vw;
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, #ff70A6, #ff9770, #ffd670);
+  display: flex;
+  justify-content: center;
+  
+  
+ 
+}
+ul{
+  list-style-type: none;
+}
+
+.home-img{
+  width: 35px;
+  margin-bottom: 30px;
+  
+}
+
+.post-img{
+  width: 35px;
+  margin-bottom: 30px;
+}
+
+.logout-img{
+  width: 35px;
+  position: absolute;
+  bottom: 25px;
+}
+
+.dashboard{
+  background-color: #f2f2f2;
+  height: 100vh;
+  width: 100vw;
 }

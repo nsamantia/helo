@@ -56,7 +56,7 @@ import Nav from '../Nav/Nav'
             return(
                 <div className= "auth">
                 {/* {this.props.location.pathname !== "/" && <Nav />} */}
-                
+                <img src ="https://github.com/DevMountain/simulation-3/blob/master/assets/helo_logo.png?raw=true" />
                 <h1 className="helo-h1">Helo</h1>
                     <div className="input-container">
                        <label className="user-pass-p">Username:</label>
@@ -68,7 +68,7 @@ import Nav from '../Nav/Nav'
                         <button className="login-reg-buttons" onClick={() => {this.handleLogin()}}>Login</button>
                         <button className="login-reg-buttons" onClick={() => {this.handleRegister()}}>Register</button>
                     </div>
-                        Auth
+                        
 
                 </div>
             )
