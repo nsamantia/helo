@@ -54,16 +54,19 @@ import Nav from '../Nav/Nav'
         
         render(){
             return(
-                <div>
+                <div className= "auth">
                 {/* {this.props.location.pathname !== "/" && <Nav />} */}
                 
-                    <div>
-                        <input placeholder="Username" name="username" onChange ={(e) => {this.handleInput(e)}}/>
-                        <input placeholder="Password" name="password" onChange={(e) => {this.handleInput(e)}}/>
+                <h1 className="helo-h1">Helo</h1>
+                    <div className="input-container">
+                       <label className="user-pass-p">Username:</label>
+                        <input className="user-pass-input" name="username" onChange ={(e) => {this.handleInput(e)}}/>
+                        <label className="user-pass-p">Password:</label>
+                        <input className="user-pass-input" name="password" onChange={(e) => {this.handleInput(e)}}/>
                     </div>
-                    <div>
-                        <button onClick={() => {this.handleLogin()}}>Login</button>
-                        <button onClick={() => {this.handleRegister()}}>Register</button>
+                    <div className = "button-container">
+                        <button className="login-reg-buttons" onClick={() => {this.handleLogin()}}>Login</button>
+                        <button className="login-reg-buttons" onClick={() => {this.handleRegister()}}>Register</button>
                     </div>
                         Auth
 
