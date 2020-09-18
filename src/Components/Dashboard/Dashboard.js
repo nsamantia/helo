@@ -19,9 +19,27 @@ export default class Dashboard extends Component{
         }
 
         render(){
+
+            const mappedPosts = this.state.posts.map((post, index) => {
+                return(
+                <div key = {index} >
+                  <p>post = {post}</p>
+                </div>
+                )
+                
+            })
+        
             return(
                 <div className = "dashboard">
-                    Dashboard
+                    <div className="dash-head">
+                    <input type='text' placeholder='search' />
+                    <p>My Posts</p>
+                    <input type='checkbox' id="posts" name="posts"/>
+                    </div>
+                    <div>
+                        <p >{mappedPosts.post}</p>
+                    </div>
+
                 </div>
 
             )

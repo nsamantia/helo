@@ -110,3 +110,8 @@ ul{
   height: 100vh;
   width: 100vw;
 }
+
+.dash-head{
+  display: flex;
+  justify-content: center;
+}

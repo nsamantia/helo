@@ -3,6 +3,7 @@ const express = require('express')
 const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./authController')
+const postCtrl = require('./controller')
 
 const app = express()
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env
@@ -18,6 +19,10 @@ app.use(
 )
 app.post(`/api/auth/register`, authCtrl.register)
 app.post(`/api/auth/login`, authCtrl.login)
+
+app.get('/api/posts/:userid', postCtrl.getPosts)
+
+
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false},

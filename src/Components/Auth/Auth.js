@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
+import {connect} from 'react-redux'
+import {getInfo} from '../../ducks/reducer'
 import Nav from '../Nav/Nav'
 
 
@@ -24,7 +26,8 @@ import Nav from '../Nav/Nav'
             const {username, password} = this.state
             axios.post('/api/auth/login', {username, password})
             .then((res) => {
-                this.setState(res.data)
+                // this.setState(res.data)
+                this.props.getInfo(res.data)
                 this.props.history.push('/Dashboard/Dashboard')
             })
             .catch((err) => {
@@ -37,7 +40,8 @@ import Nav from '../Nav/Nav'
             const {username, password} = this.state
             axios.post(`/api/auth/register`, {username, password})
             .then((res) => {
-                this.setState(res.data)
+                // this.setState(res.data)
+                this.props.getInfo(res.data)
                 this.props.history.push('/Dashboard/Dashboard')
             })
             .catch((err) => {
@@ -76,4 +80,4 @@ import Nav from '../Nav/Nav'
         }
 
 }
-export default withRouter (Auth)
+export default connect(null, {getInfo}) (Auth) 
