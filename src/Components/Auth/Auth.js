@@ -27,7 +27,8 @@ import Nav from '../Nav/Nav'
             axios.post('/api/auth/login', {username, password})
             .then((res) => {
                 // this.setState(res.data)
-                this.props.getInfo(res.data)
+                const {username, profile, userId} = res.data
+                this.props.getInfo(username, profile, userId)
                 this.props.history.push('/Dashboard/Dashboard')
             })
             .catch((err) => {
@@ -41,7 +42,8 @@ import Nav from '../Nav/Nav'
             axios.post(`/api/auth/register`, {username, password})
             .then((res) => {
                 // this.setState(res.data)
-                this.props.getInfo(res.data)
+                const {username, profile, userId} = res.data
+                this.props.getInfo(username, profile, userId)
                 this.props.history.push('/Dashboard/Dashboard')
             })
             .catch((err) => {

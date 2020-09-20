@@ -9,6 +9,7 @@ const initialState = {
 
 //Action contants
 const GET_INFO = 'GET_INFO'
+const GET_POSTS = 'GET_POSTS'
 
 
 
@@ -22,15 +23,15 @@ export function getInfo(username, profile, userId) {
             userId
          }
     }
-    
 }
+
+
+
 
 export function reducer (state = initialState, action) {
     switch (action.type) {
        case GET_INFO:
-           return {...state, username: action.payload, profile: action.payload, userId: action.payload}
-
-
+           return {...state, username: action.payload.username, profile: action.payload.profile, userId: action.payload.userId}
 
         default: 
             return state

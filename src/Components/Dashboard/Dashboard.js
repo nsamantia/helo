@@ -1,6 +1,9 @@
+import axios from 'axios'
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
-export default class Dashboard extends Component{
+class Dashboard extends Component{
     constructor(){
         super()
         this.state = {
@@ -11,6 +14,11 @@ export default class Dashboard extends Component{
      }
 
         getAllPosts = ()=> {
+            axios.get('/api/posts').then((res) => {
+                this.setState ({
+                    posts: res.data
+                })
+            })
 
         }
         
@@ -20,11 +28,14 @@ export default class Dashboard extends Component{
 
         render(){
 
-            const mappedPosts = this.state.posts.map((post, index) => {
+            const mappedPosts = this.state.posts.map((post) => {
                 return(
-                <div key = {index} >
-                  <p>post = {post}</p>
-                </div>
+                <p>{post}</p>
+                  
+                  
+
+                  
+               
                 )
                 
             })
@@ -32,12 +43,21 @@ export default class Dashboard extends Component{
             return(
                 <div className = "dashboard">
                     <div className="dash-head">
+                        
                     <input type='text' placeholder='search' />
+                    <button>Search</button>
+                    <button>Reset</button>
                     <p>My Posts</p>
                     <input type='checkbox' id="posts" name="posts"/>
                     </div>
                     <div>
-                        <p >{mappedPosts.post}</p>
+                        <p>{mappedPosts.post}</p>
+                        
+                        {this.posts}
+                        <p>{mappedPosts.title}</p>
+                        <p>{mappedPosts.conetnt}</p>
+                        <p>{this.getAllPosts()}</p>
+                        <p>{this.post}</p>
                     </div>
 
                 </div>
@@ -46,3 +66,7 @@ export default class Dashboard extends Component{
         }
     
 }
+const mapStateToProps = (reduxState) => {
+    return{userId: reduxState.userId.userId}
+}
+export default connect(mapStateToProps)(withRouter(Dashboard))

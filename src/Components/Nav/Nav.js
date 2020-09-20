@@ -8,8 +8,10 @@ const Nav = (props) => {
         <div>
             {console.log(props)}
            <div className="navbar">
-               <p>Hi,{props.username.username}</p>
-               <img src={props.profile.profile} />
+           <img src={props.profile} />
+           <p>  {props.profile}</p>
+               <p>{props.username}</p>
+              
             <ul>
            <li ><Link to="/dashboard" ><img className="home-img" src ="https://github.com/DevMountain/simulation-3/blob/master/assets/home_logo.png?raw=true"/></Link></li>
            <li><Link to="/new"><img className="post-img"  src ="https://github.com/DevMountain/simulation-3/blob/master/assets/new_logo.png?raw=true"/></Link></li>

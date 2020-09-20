@@ -20,7 +20,7 @@ app.use(
 app.post(`/api/auth/register`, authCtrl.register)
 app.post(`/api/auth/login`, authCtrl.login)
 
-app.get('/api/posts/:userid', postCtrl.getPosts)
+app.get('/api/posts', postCtrl.getPosts)
 
 
 massive({
