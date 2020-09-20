@@ -21,6 +21,9 @@ export default class Post extends Component{
         return(
             <div>
                 Post
+                <div>
+                    <button>Delete</button>
+                </div>
             </div>
         )
     }

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import Post from '../Post/Post'
 
 class Dashboard extends Component{
     constructor(){
@@ -13,12 +14,20 @@ class Dashboard extends Component{
         }
      }
 
-        getAllPosts = ()=> {
-            axios.get('/api/posts').then((res) => {
+     componentDidMount() {
+         this.getAllPosts()
+         
+     }
+
+
+        getAllPosts = () => {
+            axios.get(`/api/posts`).then((res) => {
                 this.setState ({
                     posts: res.data
                 })
+                console.log(res.data)
             })
+            .catch(err => console.log(err))
 
         }
         
@@ -28,14 +37,12 @@ class Dashboard extends Component{
 
         render(){
 
-            const mappedPosts = this.state.posts.map((post) => {
+            const mappedPosts = this.state.posts.map((post, index) => {
                 return(
-                <p>{post}</p>
-                  
-                  
-
-                  
-               
+                    <Post
+                        post={post}
+                        key={post.id}
+                        />
                 )
                 
             })
@@ -50,15 +57,13 @@ class Dashboard extends Component{
                     <p>My Posts</p>
                     <input type='checkbox' id="posts" name="posts"/>
                     </div>
+
                     <div>
-                        <p>{mappedPosts.post}</p>
-                        
-                        {this.posts}
-                        <p>{mappedPosts.title}</p>
-                        <p>{mappedPosts.conetnt}</p>
-                        <p>{this.getAllPosts()}</p>
-                        <p>{this.post}</p>
+                        <ul>{mappedPosts}</ul>
+                        <p></p>
                     </div>
+                
+                    
 
                 </div>
 
