@@ -75,11 +75,11 @@ class Dashboard extends Component{
                                 key ={post.id}   
                                   />
                             <div className = 'post-div'>
-                               {/* <Link to="/Post/:postid"> Have to make this target specific post */}
+                               <Link to="/Post/:postid"> {/* <Have to make this target specific post */}
                                 <p>{post.title}</p> 
                                <p> {post.username}</p>
                                 
-                                {/* </Link>  */}
+                                </Link> 
                                 <button onClick={() => {this.handleDelte(post.id)}}>Delete</button>
                               
                             </div>
