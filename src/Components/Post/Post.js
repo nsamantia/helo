@@ -22,7 +22,9 @@ export default class Post extends Component{
             <div>
                 Post
                 <div>
+                {this.props.post.title}
                     <button>Delete</button>
+                    
                 </div>
             </div>
         )

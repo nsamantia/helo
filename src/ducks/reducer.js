@@ -9,7 +9,7 @@ const initialState = {
 
 //Action contants
 const GET_INFO = 'GET_INFO'
-const GET_POSTS = 'GET_POSTS'
+
 
 
 

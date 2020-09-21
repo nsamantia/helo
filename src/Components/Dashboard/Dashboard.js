@@ -37,15 +37,7 @@ class Dashboard extends Component{
 
         render(){
 
-            const mappedPosts = this.state.posts.map((post, index) => {
-                return(
-                    <Post
-                        post={post}
-                        key={post.id}
-                        />
-                )
-                
-            })
+          
         
             return(
                 <div className = "dashboard">
@@ -59,10 +51,28 @@ class Dashboard extends Component{
                     </div>
 
                     <div>
-                        <ul>{mappedPosts}</ul>
-                        <p></p>
+                    {/* {this.post.content} */}
                     </div>
-                
+                {
+                    this.state.posts.map((post, index) => {
+                        return(
+                                
+                                <div>
+                                    <Post 
+                    
+                                post = {post}
+                                 ket ={post.id}    />
+                                    
+                                {post.content}
+                                {post.title}
+                                </div>
+                                
+                                
+                                
+                        )
+                        
+                    })
+                }
                     
 
                 </div>
