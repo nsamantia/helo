@@ -10,7 +10,8 @@ class Dashboard extends Component{
         this.state = {
             posts: [],
             search: '',
-            userposts: true
+            userposts: true,
+           
         }
      }
 
@@ -43,15 +44,7 @@ class Dashboard extends Component{
             })
         }
 
-        handleEdit = (postId, content) => {
-            axios.put(`/api/posts/${postId}`, {content}).then((res) => {
-                this.setState({
-                    posts: res.data
-                })
-            })
-        }
-
-        
+       
 
         render(){
 
@@ -82,15 +75,15 @@ class Dashboard extends Component{
                                 key ={post.id}   
                                   />
                             <div className = 'post-div'>
-                               <Link to="/Post/:postid"> {/* Have to make this target specific post */}
+                               {/* <Link to="/Post/:postid"> Have to make this target specific post */}
                                 <p>{post.title}</p> 
                                <p> {post.content}</p>
                                 
-                                </Link> 
+                                {/* </Link>  */}
                                 <button onClick={() => {this.handleDelte(post.id)}}>Delete</button>
-                                <button>Edit</button>
+                              
                             </div>
-                                
+                               Â
                                 </div>
                                 
                                 
