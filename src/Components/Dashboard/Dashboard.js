@@ -77,7 +77,7 @@ class Dashboard extends Component{
                             <div className = 'post-div'>
                                {/* <Link to="/Post/:postid"> Have to make this target specific post */}
                                 <p>{post.title}</p> 
-                               <p> {post.content}</p>
+                               <p> {post.username}</p>
                                 
                                 {/* </Link>  */}
                                 <button onClick={() => {this.handleDelte(post.id)}}>Delete</button>
