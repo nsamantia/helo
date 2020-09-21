@@ -11,5 +11,28 @@ module.exports = {
         const posts = await getAllPosts(db)
         res.status(200).send(posts)
 
+    },
+
+    editPost: async (req, res) => {
+
+        const db = req.app.get('db')
+        const {content} = req.body
+
+        const {post_id} = req.params
+
+        await db.edit_post([content, post_id])
+
+        const posts = await getAllPosts(db)
+        res.status(200).send(posts)
+    },
+
+    deletePost: async (req, res) => {
+            const db = req.app.get('db')
+            const {post_id} = req.params
+            await db.delete_post([post_id])
+
+            const posts = await getAllPosts(db)
+            res.status(200).send(posts)
+        }
+    
     }
-}
