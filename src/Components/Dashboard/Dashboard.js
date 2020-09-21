@@ -43,6 +43,16 @@ class Dashboard extends Component{
             })
         }
 
+        handleEdit = (postId, content) => {
+            axios.put(`/api/posts/${postId}`, {content}).then((res) => {
+                this.setState({
+                    posts: res.data
+                })
+            })
+        }
+
+        
+
         render(){
 
           
@@ -72,11 +82,13 @@ class Dashboard extends Component{
                                 key ={post.id}   
                                   />
                             <div className = 'post-div'>
-                               {/* <Link to="/Post/"> */}
-                                {post.title} 
-                                {post.content}
+                               <Link to="/Post/:postid"> {/* Have to make this target specific post */}
+                                <p>{post.title}</p> 
+                               <p> {post.content}</p>
+                                
+                                </Link> 
                                 <button onClick={() => {this.handleDelte(post.id)}}>Delete</button>
-                                {/* </Link>  */}
+                                <button>Edit</button>
                             </div>
                                 
                                 </div>

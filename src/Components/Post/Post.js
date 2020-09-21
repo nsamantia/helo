@@ -24,6 +24,9 @@ export default class Post extends Component{
                 <div>
                 
                     <button>Delete</button>
+
+                    {/* code below makes Post.js render on dashboard? 🤔 */}
+                    {/* {this.props.post.content} */}
                     
                 </div>
             </div>
