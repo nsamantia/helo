@@ -116,3 +116,8 @@ ul{
   display: flex;
   justify-content: center;
 }
+
+.post-div{
+  display: flex;
+  justify-content: center;
+}

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import {Link, withRouter } from 'react-router-dom'
 import Post from '../Post/Post'
 
 class Dashboard extends Component{
@@ -35,6 +35,14 @@ class Dashboard extends Component{
 
         }
 
+        handleDelte = (postId) => {
+            axios.delete(`/api/posts/${postId}`).then((res) => {
+                this.setState({
+                    posts: res.data
+                })
+            })
+        }
+
         render(){
 
           
@@ -61,10 +69,16 @@ class Dashboard extends Component{
                                     <Post 
                     
                                 post = {post}
-                                 ket ={post.id}    />
-                                    
+                                key ={post.id}   
+                                  />
+                            <div className = 'post-div'>
+                               {/* <Link to="/Post/"> */}
+                                {post.title} 
                                 {post.content}
-                                {post.title}
+                                <button onClick={() => {this.handleDelte(post.id)}}>Delete</button>
+                                {/* </Link>  */}
+                            </div>
+                                
                                 </div>
                                 
                                 
